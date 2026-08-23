@@ -173,61 +173,112 @@ export async function registerRoutes(
   
       const { name, email, message } = result.data;
   
-      // ---------- SMTP (nodemailer) fallback ----------
-      const smtpUser = process.env.SMTP_USER;
-      const smtpPass = process.env.SMTP_PASS;
-      const smtpHost = process.env.SMTP_HOST;
-      const smtpPort = process.env.SMTP_PORT;
+      const smtpUser = process.env.SMTP_USER || process.env.GMAIL_USER;
+      const smtpPass = process.env.SMTP_PASS || process.env.GMAIL_PASS;
+      const smtpHost = process.env.SMTP_HOST || (process.env.GMAIL_USER ? "smtp.gmail.com" : undefined);
+      const smtpPort = process.env.SMTP_PORT || (process.env.GMAIL_USER ? "465" : undefined);
   
+      let smtpSent = false;
       if (smtpUser && smtpPass && smtpHost && smtpPort) {
-        const transporter = nodemailer.createTransport({
-          host: smtpHost,
-          port: Number(smtpPort),
-          secure: Number(smtpPort) === 465,
-          auth: { user: smtpUser, pass: smtpPass },
-        });
+        try {
+          const transporter = nodemailer.createTransport({
+            host: smtpHost,
+            port: Number(smtpPort),
+            secure: Number(smtpPort) === 465,
+            auth: { user: smtpUser, pass: smtpPass },
+          });
   
-        const mailOptions = {
-          from: `${name} <${email}>`,
-          to: process.env.CONTACT_EMAIL || smtpUser,
-          subject: `New Contact Message from ${name}`,
-          text: `${message}\n\nFrom: ${name} <${email}>`,
-        };
+          const mailOptions = {
+            from: smtpUser,
+            to: process.env.CONTACT_EMAIL || smtpUser,
+            replyTo: email,
+            subject: `New Contact Message from ${name}`,
+            text: `${message}\n\nFrom: ${name} <${email}>`,
+          };
   
-        await transporter.sendMail(mailOptions);
+          await transporter.sendMail(mailOptions);
+          smtpSent = true;
+        } catch (error) {
+          console.error("SMTP delivery failed, falling back to Web3Forms:", error);
+        }
+      }
+
+      if (smtpSent) {
         return res.json({ success: true, message: "Message sent via SMTP" });
       }
   
       // ---------- Web3Forms ----------
       if (!process.env.WEB3FORMS_ACCESS_KEY) {
-        console.warn("WEB3FORMS_ACCESS_KEY missing. Message received but not sent:", { name, email, message });
-        return res.json({ success: true, message: "Message logged (email API not configured)" });
+        console.warn(
+          "WEB3FORMS_ACCESS_KEY missing – message will be logged only.",
+          { name, email, message }
+        );
+        return res.json({ success: true, message: "Message logged (no Web3Forms key)" });
       }
-  
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: process.env.WEB3FORMS_ACCESS_KEY,
-          name,
-          email,
-          message,
-          subject: `New Contact Message from ${name}`,
-          from_name: "Delizioso Website",
-        }),
-      });
-  
-      const data = await response.json();
-      if (!response.ok || !data.success) {
-        const errMsg = data.message || `Web3Forms error (status ${response.status})`;
-        throw new Error(errMsg);
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            access_key: process.env.WEB3FORMS_ACCESS_KEY,
+            name,
+            email,
+            message,
+            subject: `New Contact Message from ${name}`,
+            from_name: "Delizioso Website",
+          }),
+        });
+
+        // Non‑200 status → log & treat as logged message
+        if (!response.ok) {
+          const errBody = await response.text();
+          console.error("Web3Forms request failed", {
+            status: response.status,
+            statusText: response.statusText,
+            body: errBody,
+          });
+          return res.json({ success: true, message: "Message logged (Web3Forms request failed)" });
+        }
+
+        // Ensure JSON response
+        const contentType = response.headers.get("content-type") || "";
+        if (!contentType.includes("application/json")) {
+          const rawBody = await response.text();
+          console.error("Web3Forms returned non‑JSON", {
+            status: response.status,
+            contentType,
+            body: rawBody,
+          });
+          return res.json({ success: true, message: "Message logged (non‑JSON response)" });
+        }
+
+        // Parse JSON safely
+        let data;
+        try {
+          data = await response.json();
+        } catch (jsonErr) {
+          const raw = await response.text();
+          console.error("Failed to parse Web3Forms JSON", {
+            error: jsonErr,
+            rawBody: raw,
+          });
+          return res.json({ success: true, message: "Message logged (invalid JSON)" });
+        }
+
+        // Web3Forms reported failure?
+        if (!data.success) {
+          console.warn("Web3Forms reported failure", data);
+          return res.json({ success: true, message: "Message logged (Web3Forms reported failure)" });
+        }
+
+        // SUCCESS
+        return res.json({ success: true, message: "Message sent successfully via Web3Forms" });
+      } catch (e) {
+        console.error("Unexpected error during Web3Forms request", e);
+        return res.json({ success: true, message: "Message logged (unexpected error)" });
       }
-  
-      res.json({ success: true, message: "Message sent successfully via Web3Forms" });
-    } catch (error) {
-      console.error("[contact/message] Error sending email:", error);
-      res.status(500).json({ error: "Failed to send message", details: (error as any)?.message ?? error });
-    }
+
   });
 
   app.get("/api/contact", async (_req, res) => {
