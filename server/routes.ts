@@ -173,30 +173,33 @@ export async function registerRoutes(
       
       const { name, email, message } = result.data;
       
-      if (!process.env.GMAIL_USER || !process.env.GMAIL_PASS) {
-        console.warn("Gmail credentials missing. Message received but not sent:", { name, email, message });
-        // Still return success so the frontend works even without email config during dev
-        return res.json({ success: true, message: "Message logged (email not configured)" });
+      if (!process.env.WEB3FORMS_ACCESS_KEY) {
+        console.warn("WEB3FORMS_ACCESS_KEY missing. Message received but not sent:", { name, email, message });
+        return res.json({ success: true, message: "Message logged (email API not configured)" });
       }
 
-      const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: process.env.GMAIL_USER,
-          pass: process.env.GMAIL_PASS,
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
+        body: JSON.stringify({
+          access_key: process.env.WEB3FORMS_ACCESS_KEY,
+          name: name,
+          email: email,
+          message: message,
+          subject: `New Contact Message from ${name} (Delizioso)`,
+          from_name: "Delizioso Website",
+        }),
       });
 
-      const mailOptions = {
-        from: `"${name}" <${email}>`, // Note: Gmail often overwrites 'from' with authenticated user
-        replyTo: email,
-        to: process.env.GMAIL_USER, // Send to the admin's gmail
-        subject: `New Contact Message from ${name}`,
-        text: `You have received a new message from your website's contact form.\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-        html: `<p>You have received a new message from your website's contact form.</p><p><strong>Name:</strong> ${name}<br/><strong>Email:</strong> ${email}</p><p><strong>Message:</strong></p><p>${message.replace(/\\n/g, '<br/>')}</p>`
-      };
+      const data = await response.json();
 
-      await transporter.sendMail(mailOptions);
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "Failed to send via Web3Forms");
+      }
+
       res.json({ success: true, message: "Message sent successfully" });
     } catch (error) {
       console.error("[contact/message] Error sending email:", error);
