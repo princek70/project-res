@@ -9,7 +9,7 @@ export class PgStorage implements IStorage {
     // Sync default items to database on every startup (new ones get inserted, existing ignored)
     for (const item of defaultMenuItems) {
       await query(
-        "INSERT INTO menu_items (category, name, description, price, image) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (name) DO NOTHING",
+        "INSERT INTO menu_items (category, name, description, price, image) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (name) DO UPDATE SET image = EXCLUDED.image",
         [item.category, item.name, item.description, item.price, item.image]
       );
     }
