@@ -6,16 +6,36 @@ import { defaultMenuItems, defaultContactInfo, defaultRestaurantInfo } from "./d
 
 export class PgStorage implements IStorage {
   async initialize(): Promise<void> {
-    // Only seed default items if the table is completely empty
-    const menuCount = await query("SELECT COUNT(*) FROM menu_items");
-    if (parseInt(menuCount.rows[0].count) === 0) {
-      for (const item of defaultMenuItems) {
+    // Ensure all required categories exist (idempotent)
+    const requiredCategories = [
+      { name: "Starters", order: 1 },
+      { name: "Main Course", order: 2 },
+      { name: "Desserts", order: 3 },
+      { name: "Beverages", order: 4 },
+      { name: "Breads", order: 5 },
+      { name: "Rice & Biryani", order: 6 },
+    ];
+    const existing = await query("SELECT name FROM categories");
+    const existingNames = new Set(existing.rows.map((r: any) => r.name));
+    for (const cat of requiredCategories) {
+      if (!existingNames.has(cat.name)) {
         await query(
-          "INSERT INTO menu_items (category, name, description, price, image) VALUES ($1, $2, $3, $4, $5)",
-          [item.category, item.name, item.description, item.price, item.image]
+          "INSERT INTO categories (name, display_order) VALUES ($1, $2)",
+          [cat.name, cat.order]
         );
       }
     }
+
+    // Ensure UNIQUE constraint on menu_items.name (safe‑guard for existing DB)
+    try {
+      await query(
+        "ALTER TABLE menu_items ADD CONSTRAINT menu_items_name_unique UNIQUE (name)"
+      );
+    } catch (e) {
+      // PostgreSQL error code 42701 = duplicate_object (constraint already exists)
+      // Silently ignore – the constraint is already present.
+    }
+
 
     const contactCount = await query("SELECT COUNT(*) FROM contact_info");
     if (parseInt(contactCount.rows[0].count) === 0) {
