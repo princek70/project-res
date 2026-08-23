@@ -170,40 +170,63 @@ export async function registerRoutes(
       if (!result.success) {
         return res.status(400).json({ error: "Invalid message data", details: result.error.issues });
       }
-      
+  
       const { name, email, message } = result.data;
-      
+  
+      // ---------- SMTP (nodemailer) fallback ----------
+      const smtpUser = process.env.SMTP_USER;
+      const smtpPass = process.env.SMTP_PASS;
+      const smtpHost = process.env.SMTP_HOST;
+      const smtpPort = process.env.SMTP_PORT;
+  
+      if (smtpUser && smtpPass && smtpHost && smtpPort) {
+        const transporter = nodemailer.createTransport({
+          host: smtpHost,
+          port: Number(smtpPort),
+          secure: Number(smtpPort) === 465,
+          auth: { user: smtpUser, pass: smtpPass },
+        });
+  
+        const mailOptions = {
+          from: `${name} <${email}>`,
+          to: process.env.CONTACT_EMAIL || smtpUser,
+          subject: `New Contact Message from ${name}`,
+          text: `${message}\n\nFrom: ${name} <${email}>`,
+        };
+  
+        await transporter.sendMail(mailOptions);
+        return res.json({ success: true, message: "Message sent via SMTP" });
+      }
+  
+      // ---------- Web3Forms ----------
       if (!process.env.WEB3FORMS_ACCESS_KEY) {
         console.warn("WEB3FORMS_ACCESS_KEY missing. Message received but not sent:", { name, email, message });
         return res.json({ success: true, message: "Message logged (email API not configured)" });
       }
-
+  
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: process.env.WEB3FORMS_ACCESS_KEY,
-          name: name,
-          email: email,
-          message: message,
-          subject: `New Contact Message from ${name} (Delizioso)`,
+          name,
+          email,
+          message,
+          subject: `New Contact Message from ${name}`,
           from_name: "Delizioso Website",
         }),
       });
-
+  
       const data = await response.json();
-
       if (!response.ok || !data.success) {
-        throw new Error(data.message || "Failed to send via Web3Forms");
+        const errMsg = data.message || `Web3Forms error (status ${response.status})`;
+        throw new Error(errMsg);
       }
-
-      res.json({ success: true, message: "Message sent successfully" });
+  
+      res.json({ success: true, message: "Message sent successfully via Web3Forms" });
     } catch (error) {
       console.error("[contact/message] Error sending email:", error);
-      res.status(500).json({ error: "Failed to send message" });
+      res.status(500).json({ error: "Failed to send message", details: (error as any)?.message ?? error });
     }
   });
 
