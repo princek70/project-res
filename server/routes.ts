@@ -278,7 +278,10 @@ export async function registerRoutes(
         console.error("Unexpected error during Web3Forms request", e);
         return res.json({ success: true, message: "Message logged (unexpected error)" });
       }
-
+    } catch (error) {
+      console.error("Error processing contact message", error);
+      res.status(500).json({ error: "Failed to send message", details: error instanceof Error ? error.message : String(error) });
+    }
   });
 
   app.get("/api/contact", async (_req, res) => {
