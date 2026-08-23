@@ -7,7 +7,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Samosa",
     description: "Authentic Indian Samosa prepared with traditional spices and fresh ingredients.",
     price: 150,
-    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Samosachutney.jpg/500px-Samosachutney.jpg"
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Paneer Tikka",
     description: "Authentic Indian Paneer Tikka prepared with traditional spices and fresh ingredients.",
     price: 170,
-    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Paneer_tikka_marinated.jpg/500px-Paneer_tikka_marinated.jpg"
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Chicken Tikka",
     description: "Authentic Indian Chicken Tikka prepared with traditional spices and fresh ingredients.",
     price: 190,
-    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Chicken_Tikka_on_skewers.jpg/500px-Chicken_Tikka_on_skewers.jpg"
   },
   {
     id: 4,
@@ -31,7 +31,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Hara Bhara Kebab",
     description: "Authentic Indian Hara Bhara Kebab prepared with traditional spices and fresh ingredients.",
     price: 210,
-    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500"
+    image: "https://images.unsplash.com/photo-1548943487-a2e4e43b4850?w=500"
   },
   {
     id: 5,
@@ -39,7 +39,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Aloo Tikki",
     description: "Authentic Indian Aloo Tikki prepared with traditional spices and fresh ingredients.",
     price: 230,
-    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Aloo_Tikki_Chaat_-_New_Delhi_2012-05-10_4057.JPG/500px-Aloo_Tikki_Chaat_-_New_Delhi_2012-05-10_4057.JPG"
   },
   {
     id: 6,
@@ -47,7 +47,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Veg Pakora",
     description: "Authentic Indian Veg Pakora prepared with traditional spices and fresh ingredients.",
     price: 150,
-    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Pakora_vegetable.jpg/500px-Pakora_vegetable.jpg"
   },
   {
     id: 7,
@@ -55,7 +55,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Chicken 65",
     description: "Authentic Indian Chicken 65 prepared with traditional spices and fresh ingredients.",
     price: 170,
-    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Chicken_65_%28Dish%29.jpg/500px-Chicken_65_%28Dish%29.jpg"
   },
   {
     id: 8,
@@ -71,7 +71,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Tandoori Chicken",
     description: "Authentic Indian Tandoori Chicken prepared with traditional spices and fresh ingredients.",
     price: 210,
-    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Tandoori_chicken_in_a_restaurant.jpg/500px-Tandoori_chicken_in_a_restaurant.jpg"
   },
   {
     id: 10,
@@ -79,7 +79,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Papdi Chaat",
     description: "Authentic Indian Papdi Chaat prepared with traditional spices and fresh ingredients.",
     price: 230,
-    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Papri_Chaat.JPG/500px-Papri_Chaat.JPG"
   },
   {
     id: 11,
@@ -87,7 +87,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Butter Chicken",
     description: "Authentic Indian Butter Chicken prepared with traditional spices and fresh ingredients.",
     price: 350,
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Chicken_makhani.jpg/500px-Chicken_makhani.jpg"
   },
   {
     id: 12,
@@ -95,7 +95,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Paneer Butter Masala",
     description: "Authentic Indian Paneer Butter Masala prepared with traditional spices and fresh ingredients.",
     price: 370,
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Paneer_butter_masala.JPG/500px-Paneer_butter_masala.JPG"
   },
   {
     id: 13,
@@ -103,7 +103,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Chicken Tikka Masala",
     description: "Authentic Indian Chicken Tikka Masala prepared with traditional spices and fresh ingredients.",
     price: 390,
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Chicken_Tikka_Masala_Curry.png/500px-Chicken_Tikka_Masala_Curry.png"
   },
   {
     id: 14,
@@ -111,7 +111,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Dal Makhani",
     description: "Authentic Indian Dal Makhani prepared with traditional spices and fresh ingredients.",
     price: 410,
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Dal_Makhani.jpg/500px-Dal_Makhani.jpg"
   },
   {
     id: 15,
@@ -119,7 +119,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Chole Bhature",
     description: "Authentic Indian Chole Bhature prepared with traditional spices and fresh ingredients.",
     price: 430,
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Chole_Bhature_-_A_North_Indian_Dish.jpg/500px-Chole_Bhature_-_A_North_Indian_Dish.jpg"
   },
   {
     id: 16,
@@ -127,7 +127,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Rajma Masala",
     description: "Authentic Indian Rajma Masala prepared with traditional spices and fresh ingredients.",
     price: 350,
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Rajma_chawal_with_salad.JPG/500px-Rajma_chawal_with_salad.JPG"
   },
   {
     id: 17,
@@ -135,7 +135,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Kadai Paneer",
     description: "Authentic Indian Kadai Paneer prepared with traditional spices and fresh ingredients.",
     price: 370,
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Kadai_Paneer_with_Roti.jpg/500px-Kadai_Paneer_with_Roti.jpg"
   },
   {
     id: 18,
@@ -143,7 +143,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Palak Paneer",
     description: "Authentic Indian Palak Paneer prepared with traditional spices and fresh ingredients.",
     price: 390,
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Palak_Paneer.JPG/500px-Palak_Paneer.JPG"
   },
   {
     id: 19,
@@ -151,7 +151,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Malai Kofta",
     description: "Authentic Indian Malai Kofta prepared with traditional spices and fresh ingredients.",
     price: 410,
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Malai_kofta.jpg/500px-Malai_kofta.jpg"
   },
   {
     id: 20,
@@ -159,7 +159,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Chana Masala",
     description: "Authentic Indian Chana Masala prepared with traditional spices and fresh ingredients.",
     price: 430,
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Chana_masala.jpg/500px-Chana_masala.jpg"
   },
   {
     id: 21,
@@ -167,7 +167,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Rogan Josh",
     description: "Authentic Indian Rogan Josh prepared with traditional spices and fresh ingredients.",
     price: 350,
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Rogan_Josh.jpg/500px-Rogan_Josh.jpg"
   },
   {
     id: 22,
@@ -175,7 +175,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Chicken Chettinad",
     description: "Authentic Indian Chicken Chettinad prepared with traditional spices and fresh ingredients.",
     price: 370,
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500"
+    image: "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=500"
   },
   {
     id: 23,
@@ -183,7 +183,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Veg Biryani",
     description: "Authentic Indian Veg Biryani prepared with traditional spices and fresh ingredients.",
     price: 390,
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Vegetable_Biryani.jpg/500px-Vegetable_Biryani.jpg"
   },
   {
     id: 24,
@@ -191,7 +191,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Chicken Biryani",
     description: "Authentic Indian Chicken Biryani prepared with traditional spices and fresh ingredients.",
     price: 410,
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Chicken_Biryani_in_Chennai.jpg/500px-Chicken_Biryani_in_Chennai.jpg"
   },
   {
     id: 25,
@@ -199,7 +199,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Dal Tadka",
     description: "Authentic Indian Dal Tadka prepared with traditional spices and fresh ingredients.",
     price: 430,
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500"
+    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=500"
   },
   {
     id: 26,
@@ -207,7 +207,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Gulab Jamun",
     description: "Authentic Indian Gulab Jamun prepared with traditional spices and fresh ingredients.",
     price: 120,
-    image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Gulab_jamun_%28Dessert%29.jpg/500px-Gulab_jamun_%28Dessert%29.jpg"
   },
   {
     id: 27,
@@ -215,7 +215,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Rasmalai",
     description: "Authentic Indian Rasmalai prepared with traditional spices and fresh ingredients.",
     price: 140,
-    image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Rasmalai_Indian_Sweet.jpg/500px-Rasmalai_Indian_Sweet.jpg"
   },
   {
     id: 28,
@@ -223,7 +223,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Jalebi",
     description: "Authentic Indian Jalebi prepared with traditional spices and fresh ingredients.",
     price: 160,
-    image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Jalebi_-_Indian_sweet.JPG/500px-Jalebi_-_Indian_sweet.JPG"
   },
   {
     id: 29,
@@ -231,7 +231,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Gajar Ka Halwa",
     description: "Authentic Indian Gajar Ka Halwa prepared with traditional spices and fresh ingredients.",
     price: 180,
-    image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Gajar_Halwa.JPG/500px-Gajar_Halwa.JPG"
   },
   {
     id: 30,
@@ -239,7 +239,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Kheer",
     description: "Authentic Indian Kheer prepared with traditional spices and fresh ingredients.",
     price: 200,
-    image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Kheer_-_A_Traditional_Indian_Sweet.jpg/500px-Kheer_-_A_Traditional_Indian_Sweet.jpg"
   },
   {
     id: 31,
@@ -247,7 +247,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Kulfi",
     description: "Authentic Indian Kulfi prepared with traditional spices and fresh ingredients.",
     price: 120,
-    image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Kulfi_in_Matka.jpg/500px-Kulfi_in_Matka.jpg"
   },
   {
     id: 32,
@@ -255,7 +255,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Rasgulla",
     description: "Authentic Indian Rasgulla prepared with traditional spices and fresh ingredients.",
     price: 140,
-    image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Rasgulla_-_A_Bengali_sweet.jpg/500px-Rasgulla_-_A_Bengali_sweet.jpg"
   },
   {
     id: 33,
@@ -263,7 +263,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Motichoor Ladoo",
     description: "Authentic Indian Motichoor Ladoo prepared with traditional spices and fresh ingredients.",
     price: 160,
-    image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Motichoor_Laddoo.jpg/500px-Motichoor_Laddoo.jpg"
   },
   {
     id: 34,
@@ -271,7 +271,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Shahi Tukda",
     description: "Authentic Indian Shahi Tukda prepared with traditional spices and fresh ingredients.",
     price: 180,
-    image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Shahi_Tukda.jpg/500px-Shahi_Tukda.jpg"
   },
   {
     id: 35,
@@ -279,7 +279,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Moong Dal Halwa",
     description: "Authentic Indian Moong Dal Halwa prepared with traditional spices and fresh ingredients.",
     price: 200,
-    image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Moong_Dal_Halwa.jpg/500px-Moong_Dal_Halwa.jpg"
   },
   {
     id: 36,
@@ -287,7 +287,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Masala Chai",
     description: "Authentic Indian Masala Chai prepared with traditional spices and fresh ingredients.",
     price: 80,
-    image: "https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9d?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Masala_Chai.JPG/500px-Masala_Chai.JPG"
   },
   {
     id: 37,
@@ -295,7 +295,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Mango Lassi",
     description: "Authentic Indian Mango Lassi prepared with traditional spices and fresh ingredients.",
     price: 100,
-    image: "https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9d?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Mango_Lassi.jpg/500px-Mango_Lassi.jpg"
   },
   {
     id: 38,
@@ -303,7 +303,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Sweet Lassi",
     description: "Authentic Indian Sweet Lassi prepared with traditional spices and fresh ingredients.",
     price: 120,
-    image: "https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9d?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Lassi.jpg/500px-Lassi.jpg"
   },
   {
     id: 39,
@@ -311,7 +311,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Salted Lassi",
     description: "Authentic Indian Salted Lassi prepared with traditional spices and fresh ingredients.",
     price: 140,
-    image: "https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9d?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Salted_Lassi.jpg/500px-Salted_Lassi.jpg"
   },
   {
     id: 40,
@@ -319,7 +319,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Masala Chaas",
     description: "Authentic Indian Masala Chaas prepared with traditional spices and fresh ingredients.",
     price: 160,
-    image: "https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9d?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Chaas_in_clay_cup.jpg/500px-Chaas_in_clay_cup.jpg"
   },
   {
     id: 41,
@@ -327,7 +327,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Jaljeera",
     description: "Authentic Indian Jaljeera prepared with traditional spices and fresh ingredients.",
     price: 80,
-    image: "https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9d?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Jaljeera.jpg/500px-Jaljeera.jpg"
   },
   {
     id: 42,
@@ -335,7 +335,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Aam Panna",
     description: "Authentic Indian Aam Panna prepared with traditional spices and fresh ingredients.",
     price: 100,
-    image: "https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9d?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Aam_Panna.JPG/500px-Aam_Panna.JPG"
   },
   {
     id: 43,
@@ -343,7 +343,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Fresh Lime Soda",
     description: "Authentic Indian Fresh Lime Soda prepared with traditional spices and fresh ingredients.",
     price: 120,
-    image: "https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9d?w=500"
+    image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500"
   },
   {
     id: 44,
@@ -351,7 +351,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Rose Sharbat",
     description: "Authentic Indian Rose Sharbat prepared with traditional spices and fresh ingredients.",
     price: 140,
-    image: "https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9d?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Rooh_Afza.jpg/500px-Rooh_Afza.jpg"
   },
   {
     id: 45,
@@ -359,7 +359,7 @@ export const defaultMenuItems: MenuItem[] = [
     name: "Badam Milk",
     description: "Authentic Indian Badam Milk prepared with traditional spices and fresh ingredients.",
     price: 160,
-    image: "https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9d?w=500"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Badam_Milk.JPG/500px-Badam_Milk.JPG"
   }
 ];
 
