@@ -105,6 +105,23 @@ INSERT INTO categories (name, display_order) VALUES
   ('Beverages', 4),
   ('Breads', 5),
   ('Rice & Biryani', 6)
+,
+  ('Breads', 'Butter Naan', 'Soft and fluffy Indian bread brushed with butter.', 60, 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Naan_with_butter.jpg/500px-Naan_with_butter.jpg'),
+  ('Breads', 'Garlic Naan', 'Indian flatbread topped with minced garlic and cilantro.', 80, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Garlic_Naan.jpg/500px-Garlic_Naan.jpg'),
+  ('Breads', 'Tandoori Roti', 'Whole wheat bread baked in a traditional clay oven.', 40, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Tandoori_roti.jpg/500px-Tandoori_roti.jpg'),
+  ('Breads', 'Lachha Paratha', 'Layered, flaky whole wheat flatbread.', 70, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Lachha_Paratha.JPG/500px-Lachha_Paratha.JPG'),
+  ('Breads', 'Aloo Kulcha', 'Stuffed flatbread with spiced mashed potatoes.', 90, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Amritsari_Kulcha.jpg/500px-Amritsari_Kulcha.jpg'),
+  ('Rice & Biryani', 'Jeera Rice', 'Basmati rice cooked with cumin seeds and mild spices.', 150, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Jeera_Rice.jpg/500px-Jeera_Rice.jpg'),
+  ('Rice & Biryani', 'Mutton Biryani', 'Aromatic basmati rice cooked with tender mutton and authentic spices.', 450, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Hyderabadi_Chicken_Biryani.jpg/500px-Hyderabadi_Chicken_Biryani.jpg'),
+  ('Rice & Biryani', 'Peas Pulao', 'Fragrant rice cooked with green peas and whole spices.', 180, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Peas_Pulao.JPG/500px-Peas_Pulao.JPG'),
+  ('Starters', 'Pani Puri', 'Crispy hollow puris filled with tangy, spicy water and potatoes.', 100, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Pani_Puri_with_chutney.jpg/500px-Pani_Puri_with_chutney.jpg'),
+  ('Starters', 'Gobi Manchurian', 'Crispy cauliflower florets tossed in a spicy, sweet, and tangy sauce.', 180, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gobi_manchurian.jpg/500px-Gobi_manchurian.jpg'),
+  ('Main Course', 'Bhindi Masala', 'Stir-fried okra cooked with onions, tomatoes, and Indian spices.', 280, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Bhindi_Masala.JPG/500px-Bhindi_Masala.JPG'),
+  ('Main Course', 'Mutton Curry', 'Classic homestyle mutton curry cooked with aromatic spices.', 480, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Mutton_Curry.jpg/500px-Mutton_Curry.jpg'),
+  ('Desserts', 'Phirmi', 'Creamy ground rice pudding flavored with saffron and cardamom.', 150, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Phirni.jpg/500px-Phirni.jpg'),
+  ('Desserts', 'Mysore Pak', 'Rich, melt-in-your-mouth Indian sweet made from gram flour and ghee.', 190, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Mysore_Pak.jpg/500px-Mysore_Pak.jpg'),
+  ('Beverages', 'Filter Coffee', 'Traditional South Indian filter coffee brewed to perfection.', 90, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/South_Indian_Filter_Coffee.jpg/500px-South_Indian_Filter_Coffee.jpg'),
+  ('Beverages', 'Thandai', 'Refreshing milk drink flavored with almonds, fennel seeds, and rose petals.', 160, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Thandai.jpg/500px-Thandai.jpg')
 ON CONFLICT (name) DO NOTHING;
 
 -- Menu items

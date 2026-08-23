@@ -6,14 +6,12 @@ import { defaultMenuItems, defaultContactInfo, defaultRestaurantInfo } from "./d
 
 export class PgStorage implements IStorage {
   async initialize(): Promise<void> {
-    const menuCount = await query("SELECT COUNT(*) FROM menu_items");
-    if (parseInt(menuCount.rows[0].count) === 0) {
-      for (const item of defaultMenuItems) {
-        await query(
-          "INSERT INTO menu_items (category, name, description, price, image) VALUES ($1, $2, $3, $4, $5) ON CONFLICT DO NOTHING",
-          [item.category, item.name, item.description, item.price, item.image]
-        );
-      }
+    // Sync default items to database on every startup (new ones get inserted, existing ignored)
+    for (const item of defaultMenuItems) {
+      await query(
+        "INSERT INTO menu_items (category, name, description, price, image) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (name) DO NOTHING",
+        [item.category, item.name, item.description, item.price, item.image]
+      );
     }
 
     const contactCount = await query("SELECT COUNT(*) FROM contact_info");
